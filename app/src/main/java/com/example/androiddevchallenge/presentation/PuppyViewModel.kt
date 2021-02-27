@@ -18,4 +18,8 @@ class PuppyViewModel : ViewModel() {
         _puppiesLiveData.value = repository.getPuppies()
     }
 
+    fun find(it: String) {
+        _puppiesLiveData.value = repository.find(it)
+    }
+
 }
