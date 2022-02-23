@@ -1,10 +1,11 @@
 # Template repository
 
-Template repository for the Jetpack Compose [#AndroidDevChallenge](https://developer.android.com/dev-challenge).
+⛔️ DEPRECATED. This repo is no longer being maintained.
+Template repository for the Jetpack Compose [#AndroidDevChallenge](https://developer.android.com/dev-challenge). March 2021.
 
 ## Getting started
 Copy this repository by pressing the "Use this template" button in Github.
-Clone your repository and open it in the latest [Android Studio (Canary build)](https://developer.android.com/studio/preview).
+Clone your repository and open it in the latest [Android Studio](https://developer.android.com/studio/).
 
 ## Submission requirements
 - Follow the challenge description on the project website: [developer.android.com/dev-challenge](https://developer.android.com/dev-challenge)
