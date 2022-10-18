@@ -1,3 +1,5 @@
+This is a test 
+
 Android architecture starter template
 ==================
 
