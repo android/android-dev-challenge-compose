@@ -45,6 +45,7 @@ class LocationViewModel @Inject constructor(
     val uiState = locationId.flatMapLatest { location ->
         forecastRepository.getForecast(location)
             .map<Forecast, LocationUiState> { Success(it) }
+            .catch { emit(Error(it)) }
     }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), Loading)
 
     fun changeLocation(id: String) {
