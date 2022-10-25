@@ -112,7 +112,7 @@ fun LocationScreenForecast(
     onLocationChange: (String) -> Unit,
     modifier: Modifier = Modifier
 ) {
-    val expandedDays = remember { mutableStateMapOf<String, Int>() }
+    val expandedDays = rememberSaveable(saver = indexSaver) { mutableStateMapOf<String, Int>() }
     LocationScreenForecast(
         forecast = locationForecast,
         onLocationChange = onLocationChange,
@@ -154,11 +154,13 @@ fun LocationScreenForecast(
                 contentDescription = label
             }) {
             val index = 0
-            WeekForecastRow(
-                forecast.forecastWeek[index],
-                expanded = index == expandedDayIndex,
-                onClick = { onExpandedChanged(if (expandedDayIndex == index) -1 else index) }
-            )
+            forecast.forecastWeek.forEachIndexed { index, forecastDay ->
+                WeekForecastRow(
+                    forecast.forecastWeek[index],
+                    expanded = index == expandedDayIndex,
+                    onClick = { onExpandedChanged(if (expandedDayIndex == index) -1 else index) }
+                )
+            }
         }
     }
 }
@@ -175,7 +177,7 @@ fun TopAppBar(
         title = {
             Row(verticalAlignment = Alignment.CenterVertically) {
                 IconButton(
-                    onClick = { onLocationChange("Mountain View") }
+                    onClick = { onLocationChange("Sunnyvale") }
                 ) {
                     Icon(
                         Icons.Default.KeyboardArrowLeft,
@@ -183,11 +185,11 @@ fun TopAppBar(
                     )
                 }
                 Text(
-                    "//TODO",
+                    locationName,
                     modifier = Modifier.padding(horizontal = 32.dp)
                 )
                 IconButton(
-                    onClick = { onLocationChange("Sunnyvale") }
+                    onClick = { onLocationChange("Mountain View") }
                 ) {
                     Icon(
                         Icons.Default.KeyboardArrowRight,

@@ -19,6 +19,14 @@ jobs:
         java-version: '11'
         distribution: 'temurin'
         cache: gradle
+        
+    - name: Prevent changes in test/
+      uses: xalvarez/prevent-file-change-action@v1
+      if: github.event_name == 'pull_request'
+      with:
+        githubToken: ${{ secrets.GITHUB_TOKEN }}
+        pattern: ^app/src/test/
+        #trustedAuthors: JoseAlcerreca
 
     - name: Prevent changes in test/
       uses: xalvarez/prevent-file-change-action@v1
