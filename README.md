@@ -1,6 +1,8 @@
 Android Dev Summit 2022 Speed Challenge
 ==================
 
+Note: This repository was used for the ADS and is not being maintained. As of Oct 2022 it works on Dolphin..Flamingo and uses AGP 7.3.0.
+
 # Instructions for contestants
 
 1. Clone repository
@@ -22,23 +24,23 @@ Make all tests in `app/test/java` pass.
 ## Hints
 
 ### Test order
-`LocationScreenTest`
-`LocationViewModelTest`
-`UiLayerTest`
-`LocationConfigChangeTest`
+1. `LocationScreenTest`
+1. `LocationViewModelTest`
+1. `UiLayerTest`
+1. `LocationConfigChangeTest`
 
 ### LocationScreenTest
-Fix hardcoded title in `TopAppBar`
-Swap IDs in left/right icons
+* Fix hardcoded title in `TopAppBar`
+* Swap IDs in left/right icons
 
 ### LocationViewModelTest
-Catch error in `LocationViewModel`'s Flow (don't forget to emit it)
+* Catch error in `LocationViewModel`'s Flow (don't forget to emit it)
 
 ### UiLayerTest
-`LocationScreenForecast`: iterate on `forecast.forecastWeek` and create multiple rows in a column.
+* `LocationScreenForecast`: iterate on `forecast.forecastWeek` and create multiple rows in a column.
 
 ### LocationConfigChangeTest
-expandedDays should be saveable (look for `indexSaver`!)
+* `expandedDays` should be saveable (look for `indexSaver`!)
 
 
 # License
